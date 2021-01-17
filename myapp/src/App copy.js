@@ -1,7 +1,6 @@
+import React, { Component,useState } from 'react';
 import logo from './logo.svg';
-import React, {Component} from 'react'
 import './App.css';
-import { render } from '@testing-library/react';
 import Person from './Person/Person.js'
 
 class App extends Component {
@@ -13,13 +12,23 @@ class App extends Component {
     ]
   }
 
+  switchNameHandler = ()=>{
+    //console.log("Was clicked!")
+    // DON'T DO THIS: this.state.persons[0].name = "Maximilan"
+    this.setState({persons: [
+      {name: 'Maximilian', age:28},
+      {name: 'Maru', age: 29},
+      {name:"Stephanie", age:27}
+    ]})
+  }
+
   render(){
     return (
       <div className="App">
         <h1>Hi I'm a React App</h1>
         <h1>Another Heading</h1>
         <p>This is really working!</p>
-        <button>Switch Name</button>
+        <button onClick={this.switchNameHandler} >Switch Name</button>
         
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
         <Person name={this.state.persons[1].name} age={this.state.persons[1].age} />
@@ -36,4 +45,6 @@ class App extends Component {
   
 }
 
+
 export default App;
+
