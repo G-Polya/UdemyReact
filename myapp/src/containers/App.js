@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import Person from './Person/Person';
+import Person from './Persons/Person/Person';
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary"
 
 
@@ -27,7 +27,7 @@ class App extends Component {
 
     // const person = Object.assign({}, this.state.persons[personIndex]);
 
-    person.name = event.input.value;
+    person.name = event.target.value;
 
     const persons = [...this.state.persons];
     persons[personIndex] = person;
